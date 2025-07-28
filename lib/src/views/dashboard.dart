@@ -424,8 +424,13 @@ class _DashboardState extends State<Dashboard> {
                                               borderRadius:
                                                   BorderRadius.circular(5),
                                               border: Border.all(
-                                                color: const Color.fromARGB(255, 0, 0, 0),
-                                              )
+                                                color: const Color.fromARGB(
+                                                  255,
+                                                  0,
+                                                  0,
+                                                  0,
+                                                ),
+                                              ),
                                             ),
                                             child: Text(
                                               '1 rb',
@@ -591,38 +596,33 @@ class _DashboardState extends State<Dashboard> {
                         children: [
                           Expanded(
                             flex: 1,
-                            child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  _productleft(
-                                    'title',
-                                    'price',
-                                    'discount',
-                                    'rating',
-                                    3,
-                                    'customerCount',
-                                  ),
-                                  _productleft(
-                                    'title',
-                                    'price',
-                                    'discount',
-                                    'rating',
-                                    3,
-                                    'customerCount',
-                                  ),
-                                  _productleft(
-                                    'title',
-                                    'price',
-                                    'discount',
-                                    'rating',
-                                    3,
-                                    'customerCount',
-                                  ),
-                                ],
-                              ),
+                            child: Column(
+                              children: [
+                                _productleft(
+                                  '[ 3 IN 1 ] PAKET SCARLETT WHITENING SERUM SKINCARE WANITA, COD SERUM WAJAH',
+                                  '5.000',
+                                  '80%',
+                                  '4.5',
+                                  '457',
+                                  '6.6Rb',
+                                ),
+                                _productleft(
+                                  'Baju Gamis Wanita Terbaru 2025 / Gamis Malaysia terbaru, COD',
+                                  '29.000',
+                                  '69%',
+                                  '4.3',
+                                  '768',
+                                  '5.8Rb',
+                                ),
+                                _productleft(
+                                  'PAKET HEMAT 3 PCS CELANA KOLOR PENDEK OLAHRAGA CELANA FUTSAL PRIA WANITA UKURAN ANAK DAN DEWASA',
+                                  '53.000',
+                                  'discount',
+                                  'rating',
+                                  '3',
+                                  'customerCount',
+                                ),
+                              ],
                             ),
                           ),
 
@@ -633,27 +633,27 @@ class _DashboardState extends State<Dashboard> {
                               child: Column(
                                 children: [
                                   _productright(
-                                    'title',
-                                    'price',
-                                    'discount',
-                                    'rating',
-                                    3,
-                                    'customerCount',
+                                    'MINYAK GORENG 1 LITER PILIH SALAH SATU jangan order dengan jumlah melebihi batas!',
+                                    '16.000',
+                                    '68%',
+                                    '5',
+                                    '554',
+                                    '3.7Rb',
+                                  ),
+                                  _productright(
+                                    'Gaming Mouse Pad Non-slip soft keyboard mattress',
+                                    '30.080',
+                                    '50%',
+                                    '4.7',
+                                    '328',
+                                    '1.2Rb',
                                   ),
                                   _productright(
                                     'title',
                                     'price',
                                     'discount',
                                     'rating',
-                                    3,
-                                    'customerCount',
-                                  ),
-                                  _productright(
-                                    'title',
-                                    'price',
-                                    'discount',
-                                    'rating',
-                                    3,
+                                    '3',
                                     'customerCount',
                                   ),
                                 ],
@@ -842,19 +842,151 @@ class _DashboardState extends State<Dashboard> {
     String price,
     String discount,
     String rating,
-    int customerRating,
+    String customerRating,
     String customerCount,
   ) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
+        padding: EdgeInsets.only(bottom: 5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
           color: const Color.fromARGB(255, 255, 255, 255),
-          border: Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
+          border: Border.all(color: Colors.grey),
         ),
         width: double.infinity,
-        height: 240,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              child: Container(
+                width: double.infinity,
+                height: 130,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 215, 215, 215),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0, top: 5, right: 2),
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
+                  color: const Color.fromARGB(255, 54, 54, 54),
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0, top: 5),
+              child: Row(
+                children: [
+                  Text(
+                    'Rp',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+
+                  Text(
+                    price,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+
+                  Container(
+                    margin: EdgeInsetsGeometry.only(left: 3),
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(94, 230, 162, 157),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '-',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          discount,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 3.0),
+              child: Icon(Icons.local_shipping, color: Colors.teal),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 3.0, top: 3),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    size: 14,
+                    color: const Color.fromARGB(255, 231, 191, 50),
+                  ),
+                  Text(
+                    rating,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: const Color.fromARGB(255, 54, 54, 54),
+                    ),
+                  ),
+
+                  SizedBox(width: 4),
+                  Text('(', style: TextStyle(color: Colors.grey)),
+                  Text(customerRating, style: TextStyle(color: Colors.grey)),
+                  Text(')', style: TextStyle(color: Colors.grey)),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 3.0),
+              child: Row(
+                children: [
+                  Text(customerCount),
+                  SizedBox(width: 3),
+                  Text('Terjual'),
+                  Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.more_horiz),
+                    style: IconButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ),
+                  SizedBox(width: 5),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -864,19 +996,149 @@ class _DashboardState extends State<Dashboard> {
     String price,
     String discount,
     String rating,
-    int customerRating,
+    String customerRating,
     String customerCount,
   ) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Container(
+        padding: EdgeInsets.only(bottom: 5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
           color: const Color.fromARGB(255, 255, 255, 255),
-          border: Border.all(color: const Color.fromARGB(255, 103, 103, 103)),
+          border: Border.all(color: Colors.grey),
         ),
         width: double.infinity,
-        height: 300,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              child: Container(
+                width: double.infinity,
+                height: 180,
+                color: const Color.fromARGB(255, 215, 215, 215),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0, top: 5, right: 2),
+              child: Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
+                  color: const Color.fromARGB(255, 54, 54, 54),
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 4.0, top: 5),
+              child: Row(
+                children: [
+                  Text(
+                    'Rp',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+
+                  Text(
+                    price,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+
+                  Container(
+                    margin: EdgeInsetsGeometry.only(left: 3),
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(94, 230, 162, 157),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '-',
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          discount,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 3.0),
+              child: Icon(Icons.local_shipping, color: Colors.teal),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 3.0, top: 3),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    size: 14,
+                    color: const Color.fromARGB(255, 231, 191, 50),
+                  ),
+                  Text(
+                    rating,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: const Color.fromARGB(255, 54, 54, 54),
+                    ),
+                  ),
+
+                  SizedBox(width: 4),
+                  Text('(', style: TextStyle(color: Colors.grey)),
+                  Text(customerRating, style: TextStyle(color: Colors.grey)),
+                  Text(')', style: TextStyle(color: Colors.grey)),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 3.0),
+              child: Row(
+                children: [
+                  Text(customerCount),
+                  SizedBox(width: 3),
+                  Text('Terjual'),
+                  Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.more_horiz),
+                    style: IconButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ),
+                  SizedBox(width: 5),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
