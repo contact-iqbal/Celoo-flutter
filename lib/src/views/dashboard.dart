@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:myapp/src/views/cart.dart';
@@ -741,25 +740,6 @@ class _DashboardState extends State<Dashboard> {
           icon: Icon(icon, color: color),
         ),
         Text(label, style: TextStyle(fontSize: 11)),
-      ],
-    );
-  }
-
-  Widget _sectionTitle(String title, String button) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: GoogleFonts.poppins(fontSize: 19, fontWeight: FontWeight.w600),
-        ),
-        TextButton(
-          onPressed: () {},
-          child: Text(
-            button,
-            style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
-          ),
-        ),
       ],
     );
   }
